@@ -1,0 +1,14 @@
+jvc:
+  image: jvc:1.0
+  container_name: jvc
+  dns: 172.17.0.1
+  ports:
+    - "80:80"
+    - "3306:3306"
+  privileged: true
+  environment:
+  MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+  volumes:
+   - /home/zuljin/projects/:/web
+   - /home/zuljin/projects/logs:/var/log/apache2
+   - /home/zuljin/projects/apache2/run:/var/run/apache2
